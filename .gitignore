@@ -12,3 +12,6 @@ Cargo.lock
 #binaries possibly produced
 lib
 a.out
+
+# produced by exercism
+.exercism
