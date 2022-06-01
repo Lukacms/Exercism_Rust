@@ -5,6 +5,8 @@
 // lib
 //
 
+#![allow(dead_code)]
+
 fn production_by_hour(speed_range: u8) -> f64 {
     let default_hour: f64 = 221.0;
     let result;
