@@ -1,22 +1,7 @@
-pub fn nth(n: u32) -> u32 {
-    let mut primes: Vec<u32> = vec![2, 3, 5];
-    let mut is_prime;
-    let mut count: u32 = 3;
+fn is_prime(number: u32) -> bool {
+    !(2..(number as f32).sqrt() as u32 + 1).any(|x| number % x == 0)
+}
 
-    for x in (7..u32::MAX).step_by(2) {
-        is_prime = true;
-        for prime in &primes {
-            if x % prime == 0 {
-                is_prime = false;
-            }
-        }
-        if is_prime {
-            primes.push(x);
-            count += 1;
-        }
-        if count >= (n + 1) {
-            break;
-        }
-    }
-    primes[n as usize]
+pub fn nth(n: u32) -> u32 {
+    (2..).filter(|x| is_prime(*x)).nth(n as usize).unwrap()
 }
